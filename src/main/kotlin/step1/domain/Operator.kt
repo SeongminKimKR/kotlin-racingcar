@@ -2,7 +2,7 @@ package step1.domain
 
 import java.lang.IllegalArgumentException
 
-enum class Operator(val operator: String) {
+enum class Operator(private val operator: String) {
     PLUS("+"),
     MINUS("-"),
     MULTIPLY("*"),
