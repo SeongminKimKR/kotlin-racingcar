@@ -10,7 +10,7 @@ enum class Operator(val operator: String) {
 
     companion object {
         fun getOperator(input: String): Operator {
-            return values().firstOrNull { it.operator == input } ?: throw IllegalArgumentException("")
+            return values().firstOrNull { it.operator == input } ?: throw IllegalArgumentException("지원하지 않는 연산자 입니다. operator=$input")
         }
     }
 }
