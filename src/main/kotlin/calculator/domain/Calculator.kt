@@ -2,17 +2,17 @@ package calculator.domain
 
 import calculator.domain.Operator.Companion.getOperator
 
-class Calculator() {
+class Calculator {
     fun run(input: String?): String {
         val expression = ParsedExpression(input)
         while (expression.isCanCalculate()) {
-            val operand1 = Operand(expression.getElement())
-            val operator = getOperator(expression.getElement())
-            val operand2 = Operand(expression.getElement())
+            val operand1 = Operand(expression.pollElement())
+            val operator = getOperator(expression.pollElement())
+            val operand2 = Operand(expression.pollElement())
             expression.putElement(calculate(operand1, operand2, operator))
         }
 
-        return expression.getElement()
+        return expression.pollElement()
     }
 
     private fun calculate(

@@ -12,7 +12,7 @@ class ParsedExpression(input: String?) {
 
     fun isCanCalculate() = elements.size >= MIN_SIZE && elements.size % 2 == 1
 
-    fun getElement(): String = elements.poll()
+    fun pollElement(): String = elements.poll()
 
     fun putElement(value: String) {
         elements.push(value)
