@@ -19,12 +19,5 @@ class Calculator() {
         operand1: Operand,
         operand2: Operand,
         operator: Operator,
-    ): String {
-        return when (operator) {
-            Operator.PLUS -> operand1.value + operand2.value
-            Operator.MINUS -> operand1.value - operand2.value
-            Operator.MULTIPLY -> operand1.value * operand2.value
-            Operator.DIVIDE -> operand1.value / operand2.value
-        }.toString()
-    }
+    ) = operator.operate(operand1, operand2).toString()
 }
