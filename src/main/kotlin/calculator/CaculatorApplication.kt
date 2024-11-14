@@ -1,6 +1,6 @@
-package step1
+package calculator
 
-import step1.domain.Calculator
+import calculator.domain.Calculator
 
 fun main() {
     println("식을 입력해주세요")

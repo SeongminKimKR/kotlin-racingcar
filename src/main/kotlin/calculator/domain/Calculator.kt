@@ -1,6 +1,6 @@
-package step1.domain
+package calculator.domain
 
-import step1.domain.Operator.Companion.getOperator
+import calculator.domain.Operator.Companion.getOperator
 
 class Calculator() {
     fun run(input: String?): String {
