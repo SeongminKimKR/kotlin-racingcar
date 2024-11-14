@@ -2,7 +2,7 @@ package step1.domain
 
 import java.lang.IllegalArgumentException
 
-enum class Operator(private val operator: String) {
+enum class Operator(val value: String) {
     PLUS("+"),
     MINUS("-"),
     MULTIPLY("*"),
@@ -42,7 +42,7 @@ enum class Operator(private val operator: String) {
 
     companion object {
         fun getOperator(input: String): Operator {
-            return values().firstOrNull { it.operator == input } ?: throw IllegalArgumentException("지원하지 않는 연산자 입니다. operator=$input")
+            return values().firstOrNull { it.value == input } ?: throw IllegalArgumentException("지원하지 않는 연산자 입니다. operator=$input")
         }
     }
 }
