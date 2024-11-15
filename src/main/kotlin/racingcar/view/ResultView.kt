@@ -1,9 +1,9 @@
 package racingcar.view
 
-import racingcar.view.dto.ResultDto
+import racingcar.view.attribute.ResultViewAttribute
 
 class ResultView {
-    fun resolve(request: ResultDto) {
+    fun resolve(request: ResultViewAttribute) {
         request.cars.getCars().forEach {
             println("-".repeat(it.location))
         }

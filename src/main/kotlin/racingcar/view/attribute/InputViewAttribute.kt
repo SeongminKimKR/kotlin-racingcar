@@ -1,6 +1,6 @@
-package racingcar.view.dto
+package racingcar.view.attribute
 
-data class InputDto(val carCountInput: String?, val playCountInput: String?) {
+data class InputViewAttribute(val carCountInput: String?, val playCountInput: String?) {
     val carCount: Int
 
     val playCount: Int
@@ -8,6 +8,8 @@ data class InputDto(val carCountInput: String?, val playCountInput: String?) {
     init {
         require(!carCountInput.isNullOrBlank() && !playCountInput.isNullOrBlank()) { "초기화 설정값은 null이나 빈 값이 될 수 없습니다." }
         require(isNumeric(carCountInput, playCountInput))
+        require(isPositive(carCountInput.toInt()) && isPositive(playCountInput.toInt()))
+
         carCount = carCountInput.toInt()
         playCount = playCountInput.toInt()
     }
@@ -16,4 +18,6 @@ data class InputDto(val carCountInput: String?, val playCountInput: String?) {
         carCount: String,
         playCount: String,
     ) = carCount.toIntOrNull() != null && playCount.toIntOrNull() != null
+
+    private fun isPositive(value: Int) = value > 0
 }
