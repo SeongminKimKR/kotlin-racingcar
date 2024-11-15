@@ -1,14 +1,14 @@
 package racingcar.view
 
-import racingcar.config.RacingCarConfig
+import racingcar.view.dto.InputDto
 
 class InputView {
-    fun parse(): RacingCarConfig {
+    fun parse(): InputDto {
         println("자동차 대수는 몇 대인가요?")
         val carCount = readLine()
         println("시도할 횟수 몇 회인가요?")
         val playCount = readLine()
 
-        return RacingCarConfig(carCountInput = carCount, playCountInput = playCount)
+        return InputDto(carCountInput = carCount, playCountInput = playCount)
     }
 }

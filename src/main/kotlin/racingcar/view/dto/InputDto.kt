@@ -1,6 +1,6 @@
-package racingcar.config
+package racingcar.view.dto
 
-data class RacingCarConfig(val carCountInput: String?, val playCountInput: String?) {
+data class InputDto(val carCountInput: String?, val playCountInput: String?) {
     val carCount: Int
 
     val playCount: Int

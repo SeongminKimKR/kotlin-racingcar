@@ -1,12 +1,13 @@
 package racingcar.view
 
-import racingcar.domain.Cars
+import racingcar.view.dto.ResultDto
 
 class ResultView {
-    fun resolve(cars: Cars) {
-        println("실행 결과")
-        cars.getCars().forEach {
+    fun resolve(request: ResultDto) {
+        request.cars.getCars().forEach {
             println("-".repeat(it.location))
         }
+
+        println()
     }
 }
