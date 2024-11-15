@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.view.InputView
+
 fun main() {
-    GameProcessor.play()
+    GameRunner.play(InputView().parse())
 }

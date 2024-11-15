@@ -1,5 +1,3 @@
 package racingcar.util
 
-fun Int.getRandom(): Int {
-    return 0
-}
+fun getRandom(range: IntRange) = range.random()
