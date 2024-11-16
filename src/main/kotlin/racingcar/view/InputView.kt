@@ -1,15 +1,15 @@
 package racingcar.view
 
-import racingcar.view.attribute.InputViewAttribute
+import racingcar.domain.Input
 
 class InputView {
-    fun parse(): InputViewAttribute {
+    fun parse(): Input {
         println(CAR_COUNT_SETTING_MESSAGE)
         val carCount = readLine()
         println(TRY_COUNT_SETTING_MESSAGE)
         val playCount = readLine()
 
-        return InputViewAttribute(carCountInput = carCount, playCountInput = playCount)
+        return Input(carCountInput = carCount, playCountInput = playCount)
     }
 
     companion object {

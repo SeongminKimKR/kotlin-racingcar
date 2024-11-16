@@ -1,6 +1,6 @@
-package racingcar.view.attribute
+package racingcar.domain
 
-data class InputViewAttribute(val carCountInput: String?, val playCountInput: String?) {
+class Input(val carCountInput: String?, val playCountInput: String?) {
     val carCount: Int
 
     val playCount: Int
