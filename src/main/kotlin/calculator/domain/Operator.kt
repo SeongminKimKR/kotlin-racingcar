@@ -2,43 +2,11 @@ package calculator.domain
 
 import java.lang.IllegalArgumentException
 
-enum class Operator(val value: String) {
-    PLUS("+"),
-    MINUS("-"),
-    MULTIPLY("*"),
-    DIVIDE("/"), ;
-
-    private fun plus(
-        operand1: Operand,
-        operand2: Operand,
-    ) = operand1.value + operand2.value
-
-    private fun minus(
-        operand1: Operand,
-        operand2: Operand,
-    ) = operand1.value - operand2.value
-
-    private fun multiply(
-        operand1: Operand,
-        operand2: Operand,
-    ) = operand1.value * operand2.value
-
-    private fun divide(
-        operand1: Operand,
-        operand2: Operand,
-    ) = operand1.value / operand2.value
-
-    fun operate(
-        operand1: Operand,
-        operand2: Operand,
-    ): Double {
-        return when (this) {
-            PLUS -> plus(operand1, operand2)
-            MINUS -> minus(operand1, operand2)
-            MULTIPLY -> multiply(operand1, operand2)
-            DIVIDE -> divide(operand1, operand2)
-        }
-    }
+enum class Operator(val value: String, val operate: (Operand, Operand) -> Double) {
+    PLUS("+", { a, b -> a.value + b.value }),
+    MINUS("-", { a, b -> a.value - b.value }),
+    MULTIPLY("*", { a, b -> a.value * b.value }),
+    DIVIDE("/", { a, b -> a.value / b.value }), ;
 
     companion object {
         fun getOperator(input: String): Operator {
