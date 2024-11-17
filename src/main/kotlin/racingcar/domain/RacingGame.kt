@@ -1,23 +1,26 @@
 package racingcar.domain
 
-import racingcar.util.RandomGenerator
+import racingcar.util.NumberGenerator
+import racingcar.view.RacingGameInput
 
-class RacingGame(size: Int, randomGenerator: RandomGenerator) {
-    private val cars: List<Car> = List(size) { Car() }
-    private val randomGenerator = randomGenerator
+class RacingGame(racingGameInput: RacingGameInput, numberGenerator: NumberGenerator) {
+    private val cars = Cars.createCars(racingGameInput.carNames)
+    private val gameRound = GameRound(racingGameInput.playCount)
+    private val numberGenerator = numberGenerator
 
-    fun tryMove() {
-        cars.forEach {
-            if (randomGenerator.generate(RANDOM_VALUE_RANGE) >= MIN_VALUE_TO_MOVE_CAR) {
-                it.move()
-            }
-        }
+    fun play() {
+        cars.tryMove(numberGenerator)
+        gameRound.decrease()
     }
 
-    fun getLocations() = cars.map { it.location }.toList()
+    fun isEnd() = gameRound.count == 0
 
-    companion object {
-        const val MIN_VALUE_TO_MOVE_CAR = 4
-        private val RANDOM_VALUE_RANGE = 0..9
+    fun getCarsInfo(): List<Pair<String, Int>> {
+        return cars.getCars().map { Pair(it.name.value, it.location.value) }
+    }
+
+    fun getWinnerInfo(): List<String> {
+        val maxLocation = cars.getCars().maxOf { it.location.value }
+        return cars.getCars().filter { it.location.value == maxLocation }.map { it.name.value }
     }
 }
