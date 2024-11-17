@@ -3,10 +3,9 @@ package racingcar.domain
 import racingcar.util.NumberGenerator
 import racingcar.view.RacingGameInput
 
-class RacingGame(racingGameInput: RacingGameInput, numberGenerator: NumberGenerator) {
+class RacingGame(racingGameInput: RacingGameInput, private val numberGenerator: NumberGenerator) {
     private val cars = Cars.createCars(racingGameInput.carNames)
     private val gameRound = GameRound(racingGameInput.playCount)
-    private val numberGenerator = numberGenerator
 
     fun play() {
         cars.tryMove(numberGenerator)
