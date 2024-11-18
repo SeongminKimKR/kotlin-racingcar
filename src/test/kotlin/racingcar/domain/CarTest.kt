@@ -5,17 +5,17 @@ import io.kotest.matchers.shouldBe
 
 class CarTest : FunSpec({
 
-    test("car는 유효한 이름과, 위치 기본 초기 값이 포함되어 있다") {
-        val name = "car1"
-        val car = Car(name)
+    val name = CarName("car1")
+    val location = CarLocation()
+    val car = Car(name, location)
 
-        car.name.value shouldBe name
-        car.location.value shouldBe 0
+    test("car는 유효한 이름과, 위치 기본 초기 값이 포함되어 있다") {
+        car.getNameValue() shouldBe name.value
+        car.getLocationValue() shouldBe CarLocation.DEFAULT_VALUE
     }
 
     test("move()는 차의 위치를 1칸 이동시킨다") {
-        val car = Car("car1")
         car.move()
-        car.location.value shouldBe 1
+        car.getLocationValue() shouldBe 1
     }
 })
