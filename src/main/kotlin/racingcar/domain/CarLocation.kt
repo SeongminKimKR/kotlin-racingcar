@@ -1,10 +1,14 @@
 package racingcar.domain
 
-class CarLocation {
-    var value: Int = 0
+class CarLocation(initValue: Int = DEFAULT_VALUE) {
+    var value: Int = initValue
         private set
 
     fun increase() {
         value++
+    }
+
+    companion object {
+        const val DEFAULT_VALUE = 0
     }
 }

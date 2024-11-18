@@ -1,14 +1,16 @@
 package racingcar.view
 
+import racingcar.domain.CarHistory
+
 class ResultView {
     fun resolveTitle() {
         println("실행 결과")
     }
 
-    fun resolveCarsInfo(data: CarsInfoResultViewModel) {
-        data.carsInfo.forEach {
-            print("${it.first} : ")
-            println("-".repeat(it.second))
+    fun resolveCarsInfo(data: List<CarHistory>) {
+        data.forEach {
+            print("${it.nameValue} : ")
+            println("-".repeat(it.locationValue))
         }
         println()
     }

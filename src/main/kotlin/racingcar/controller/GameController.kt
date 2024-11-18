@@ -1,0 +1,27 @@
+package racingcar.controller
+
+import racingcar.domain.Cars
+import racingcar.domain.GameRound
+import racingcar.domain.RacingGame
+import racingcar.util.RandomGenerator
+import racingcar.view.GameWinnerResultViewModel
+import racingcar.view.RacingGameInput
+import racingcar.view.ResultView
+
+class GameController {
+    fun run(racingGameInput: RacingGameInput) {
+        val cars = Cars.createCars(racingGameInput.carNames)
+        val gameRounds = GameRound(racingGameInput.playCount)
+        val racingGame = RacingGame(cars, gameRounds, RandomGenerator())
+        val resultView = ResultView()
+
+        resultView.resolveTitle()
+
+        while (!racingGame.isEnd()) {
+            racingGame.play()
+            resultView.resolveCarsInfo(racingGame.getCarHistories())
+        }
+
+        resultView.resolveGameWinner(GameWinnerResultViewModel(racingGame.getWinnerInfo()))
+    }
+}
