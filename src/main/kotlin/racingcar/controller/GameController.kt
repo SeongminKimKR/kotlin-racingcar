@@ -17,11 +17,9 @@ class GameController {
 
         resultView.resolveTitle()
 
-        while (!racingGame.isEnd()) {
-            racingGame.play()
-            resultView.resolveCarsInfo(racingGame.getCarHistories())
-        }
+        racingGame.play()
 
+        resultView.resolveCarsInfo(racingGame.carHistories)
         resultView.resolveGameWinner(GameWinnerResultViewModel(racingGame.getWinnerInfo()))
     }
 }

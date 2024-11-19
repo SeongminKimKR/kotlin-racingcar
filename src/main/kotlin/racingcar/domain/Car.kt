@@ -8,11 +8,7 @@ class Car(
         location.increase()
     }
 
-    fun getLocationValue() = location.value
+    fun getLocationValue(): Int = location.value
 
-    fun getNameValue() = name.value
-
-    companion object {
-        fun toCarHistory(car: Car) = CarHistory(car.name.value, car.location.value)
-    }
+    fun getNameValue(): String = name.value
 }

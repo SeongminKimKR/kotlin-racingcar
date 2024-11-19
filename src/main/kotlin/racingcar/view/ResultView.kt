@@ -7,12 +7,14 @@ class ResultView {
         println("실행 결과")
     }
 
-    fun resolveCarsInfo(data: List<CarHistory>) {
-        data.forEach {
-            print("${it.nameValue} : ")
-            println("-".repeat(it.locationValue))
+    fun resolveCarsInfo(data: List<List<CarHistory>>) {
+        data.forEach { carHistories ->
+            carHistories.forEach { carHistory ->
+                print("${carHistory.nameValue} : ")
+                println("-".repeat(carHistory.locationValue))
+            }
+            println()
         }
-        println()
     }
 
     fun resolveGameWinner(data: GameWinnerResultViewModel) {
