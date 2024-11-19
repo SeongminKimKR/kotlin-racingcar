@@ -13,17 +13,13 @@ class RacingGame(
         while (!isEnd()) {
             cars.tryMove(numberGenerator)
             addHistory()
-            proceedRound()
+            gameRound.proceed()
         }
     }
 
     fun isEnd() = gameRound.count == 0
 
     fun getWinnerInfo(): List<String> = GameWinnerSelector.decideWinners(cars)
-
-    private fun proceedRound() {
-        gameRound.decrease()
-    }
 
     private fun addHistory() {
         carHistories.add(Cars.toCarHistories(cars))
