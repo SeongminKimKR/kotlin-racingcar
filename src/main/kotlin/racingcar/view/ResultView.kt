@@ -8,8 +8,8 @@ class ResultView {
         println("실행 결과")
     }
 
-    fun resolveCarsInfo(data: MutableList<CarHistories>) {
-        data.forEach { printCarHistories(it) }
+    fun resolveCarsInfo(data: CarsInfoResultViewModel) {
+        data.carsInfo.forEach { printCarHistories(it) }
     }
 
     fun resolveGameWinner(data: GameWinnerResultViewModel) {
