@@ -6,17 +6,15 @@ import io.kotest.matchers.collections.shouldBeIn
 class GameWinnerSelectorTest : StringSpec({
 
     "우승자는 위치 값이 가장 큰 자동차(들)이다." {
-        val cars =
-            Cars(
-                listOf(
-                    Car(CarName("a"), CarLocation(1)),
-                    Car(CarName("b"), CarLocation(2)),
-                    Car(CarName("c"), CarLocation(2)),
-                    Car(CarName("d"), CarLocation(0)),
-                ),
+        val histories =
+            listOf(
+                CarHistory("a", 1),
+                CarHistory("b", 2),
+                CarHistory("c", 2),
+                CarHistory("d", 0),
             )
 
-        val actualResults = GameWinnerSelector.decideWinners(cars)
+        val actualResults = GameWinnerSelector.decideWinners(histories)
         val expectedResults = listOf("b", "c")
 
         actualResults.forEach { it shouldBeIn expectedResults }

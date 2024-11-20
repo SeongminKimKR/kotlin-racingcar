@@ -1,7 +1,6 @@
 package racingcar.domain
 
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.collections.shouldBeIn
 import io.kotest.matchers.shouldBe
 import racingcar.util.FakeRandomGenerator
 
@@ -16,13 +15,11 @@ class RacingGameTest : StringSpec({
         racingGame.isEnd() shouldBe true
     }
 
-    "경주게임은 우승자 정보를 조회할 수 있다." {
+    "경주게임은 게임 진행 후 결과를 반환한다." {
         val cars = Cars.createCars("a,b,c")
-        val racingGame = RacingGame(cars, GameRound("1"), FakeRandomGenerator(mutableListOf()))
-        val expectedResults = listOf("a", "b", "c")
+        val racingGame = RacingGame(cars, GameRound("1"), FakeRandomGenerator(mutableListOf(4, 4, 4)))
+        val gameResult = racingGame.play()
 
-        val winners = racingGame.getWinnerInfo()
-
-        winners.forEach { it shouldBeIn expectedResults }
+        gameResult.forEachIndexed { index, carHistory -> carHistory.nameValue shouldBe cars.getCars()[index].getNameValue() }
     }
 })

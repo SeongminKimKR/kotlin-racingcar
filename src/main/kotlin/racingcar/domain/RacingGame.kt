@@ -9,17 +9,17 @@ class RacingGame(
 ) {
     val carHistories = mutableListOf<List<CarHistory>>()
 
-    fun play() {
+    fun play(): List<CarHistory> {
         while (!isEnd()) {
             cars.tryMove(numberGenerator)
             addHistory()
             gameRound.proceed()
         }
+
+        return Cars.toCarHistories(cars)
     }
 
     fun isEnd() = gameRound.count == 0
-
-    fun getWinnerInfo(): List<String> = GameWinnerSelector.decideWinners(cars)
 
     private fun addHistory() {
         carHistories.add(Cars.toCarHistories(cars))
