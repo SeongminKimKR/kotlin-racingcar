@@ -2,6 +2,7 @@ package racingcar.domain
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldBeIn
+import racingcar.domain.history.CarHistory
 
 class GameWinnerSelectorTest : StringSpec({
 

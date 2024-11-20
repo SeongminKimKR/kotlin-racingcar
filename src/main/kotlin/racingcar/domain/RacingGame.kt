@@ -1,5 +1,8 @@
 package racingcar.domain
 
+import racingcar.domain.car.Cars
+import racingcar.domain.history.CarHistories
+import racingcar.domain.history.CarHistory
 import racingcar.util.NumberGenerator
 
 class RacingGame(
@@ -7,7 +10,7 @@ class RacingGame(
     private val gameRound: GameRound,
     private val numberGenerator: NumberGenerator,
 ) {
-    val carHistories = mutableListOf<List<CarHistory>>()
+    val totalCarHistories = mutableListOf<CarHistories>()
 
     fun play(): List<CarHistory> {
         while (!isEnd()) {
@@ -22,6 +25,6 @@ class RacingGame(
     fun isEnd() = gameRound.count == 0
 
     private fun addHistory() {
-        carHistories.add(Cars.toCarHistories(cars))
+        totalCarHistories.add(Cars.toTotalCarHistories(cars))
     }
 }

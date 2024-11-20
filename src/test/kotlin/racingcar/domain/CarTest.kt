@@ -2,6 +2,9 @@ package racingcar.domain
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
+import racingcar.domain.car.Car
+import racingcar.domain.car.CarLocation
+import racingcar.domain.car.CarName
 
 class CarTest : FunSpec({
 

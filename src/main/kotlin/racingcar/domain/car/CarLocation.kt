@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.domain.car
 
 class CarLocation(initValue: Int = DEFAULT_VALUE) {
     var value: Int = initValue

@@ -3,6 +3,7 @@ package racingcar.domain
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
+import racingcar.domain.car.Cars
 import racingcar.util.FakeRandomGenerator
 
 class CarsTest : StringSpec({

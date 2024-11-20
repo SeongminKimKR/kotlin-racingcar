@@ -1,6 +1,6 @@
 package racingcar.view
 
-import racingcar.domain.CarHistory
+import racingcar.domain.history.CarHistory
 
 data class CarsInfoResultViewModel(val carsInfo: List<CarHistory>)
 

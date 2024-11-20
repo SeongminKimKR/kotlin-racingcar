@@ -1,9 +1,9 @@
 package racingcar.controller
 
-import racingcar.domain.Cars
 import racingcar.domain.GameRound
 import racingcar.domain.GameWinnerSelector
 import racingcar.domain.RacingGame
+import racingcar.domain.car.Cars
 import racingcar.util.RandomGenerator
 import racingcar.view.GameWinnerResultViewModel
 import racingcar.view.RacingGameInput
@@ -21,7 +21,7 @@ class GameController {
         val gameResult = racingGame.play()
         val winners = GameWinnerSelector.decideWinners(gameResult)
 
-        resultView.resolveCarsInfo(racingGame.carHistories)
+        resultView.resolveCarsInfo(racingGame.totalCarHistories)
         resultView.resolveGameWinner(GameWinnerResultViewModel(winners))
     }
 }
